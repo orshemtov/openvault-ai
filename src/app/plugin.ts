@@ -271,7 +271,7 @@ export class OpenVaultAiPlugin extends Plugin {
       this.app as unknown as {
         setting?: {
           open: () => void;
-          openTabById?: (id: string) => void;
+          openTabById?: (_id: string) => void;
         };
       }
     ).setting;
@@ -330,7 +330,7 @@ export class OpenVaultAiPlugin extends Plugin {
       this.listAllowedSkills(runtimeAgent.id),
       this.loadCrossChatMemory(parsedTurn.prompt, input.contextSummary)
     ]);
-    const explicitNotePaths = await this.resolveMentionedNotePaths(
+    const explicitNotePaths = this.resolveMentionedNotePaths(
       parsedTurn.noteMentions
     );
     const baseContext = parsedTurn.includeAllNotes
@@ -390,7 +390,7 @@ export class OpenVaultAiPlugin extends Plugin {
       this.listAllowedSkills(runtimeAgent.id),
       this.loadCrossChatMemory(parsedTurn.prompt, input.contextSummary)
     ]);
-    const explicitNotePaths = await this.resolveMentionedNotePaths(
+    const explicitNotePaths = this.resolveMentionedNotePaths(
       parsedTurn.noteMentions
     );
     const baseContext = parsedTurn.includeAllNotes
@@ -633,14 +633,12 @@ export class OpenVaultAiPlugin extends Plugin {
     return (await this.memoryStorage?.listMemories()) ?? [];
   }
 
-  private async resolveMentionedNotePaths(
-    noteMentions: string[]
-  ): Promise<string[]> {
+  private resolveMentionedNotePaths(noteMentions: string[]): string[] {
     if (noteMentions.length === 0) {
       return [];
     }
 
-    const allNotePaths = await this.listMentionableNotePaths();
+    const allNotePaths = this.listMentionableNotePaths();
     const allFolderPaths = getFolderPaths(allNotePaths);
 
     const matches = noteMentions.map((mention) => {

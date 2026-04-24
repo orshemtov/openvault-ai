@@ -76,10 +76,7 @@ export class MemoryStorage {
       id: existing?.id ?? createMemoryId(),
       path:
         existing?.path ??
-        (await this.createMemoryPath(
-          getMemoryNamespace(input.type),
-          input.summary
-        )),
+        this.createMemoryPath(getMemoryNamespace(input.type), input.summary),
       type: input.type,
       summary: input.summary,
       details: input.details,
@@ -112,10 +109,7 @@ export class MemoryStorage {
     const nextPath =
       nextType === existing.type && nextSummary === existing.summary
         ? existing.path
-        : await this.createMemoryPath(
-            getMemoryNamespace(nextType),
-            nextSummary
-          );
+        : this.createMemoryPath(getMemoryNamespace(nextType), nextSummary);
     const entry: PersistedMemoryEntry = {
       ...existing,
       path: nextPath,

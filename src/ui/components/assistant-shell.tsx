@@ -111,7 +111,7 @@ export function AssistantShell({ plugin, settings }: AssistantShellProps) {
         plugin.loadActiveConversation(),
         plugin.loadAssistantState(),
         plugin.listCommands(),
-        plugin.listMentionableNotePaths(),
+        Promise.resolve(plugin.listMentionableNotePaths()),
         plugin.listConversations()
       ]);
 
@@ -809,7 +809,9 @@ export function AssistantShell({ plugin, settings }: AssistantShellProps) {
           </button>
           <button
             className="mod-muted openvault-ai__header-button openvault-ai__header-button--square"
-            onClick={() => plugin.openPluginSettings()}
+            onClick={() => {
+              plugin.openPluginSettings();
+            }}
             type="button"
             aria-label="Settings"
             title="Settings"
@@ -1005,9 +1007,14 @@ export function AssistantShell({ plugin, settings }: AssistantShellProps) {
               <button
                 className="mod-cta openvault-ai__send-button"
                 disabled={!isSending && !canSend}
-                onClick={() =>
-                  isSending ? cancelActiveRequest() : void sendPromptAsync()
-                }
+                onClick={() => {
+                  if (isSending) {
+                    cancelActiveRequest();
+                    return;
+                  }
+
+                  void sendPromptAsync();
+                }}
                 type="button"
               >
                 {isSending

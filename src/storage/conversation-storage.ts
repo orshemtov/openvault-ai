@@ -39,8 +39,7 @@ export class ConversationStorage {
       ? await this.loadConversation(existingPath)
       : null;
 
-    const path =
-      existingConversation?.path ?? (await this.createConversationPath());
+    const path = existingConversation?.path ?? this.createConversationPath();
     const conversation: PersistedConversation = {
       sessionId:
         existingConversation?.sessionId ?? createConversationSessionId(),

@@ -1,21 +1,70 @@
 import js from "@eslint/js";
+import obsidianmdModule from "eslint-plugin-obsidianmd";
 import tseslint from "typescript-eslint";
 
-export default tseslint.config(
+const obsidianmd = obsidianmdModule.default ?? obsidianmdModule;
+
+export default [
   {
-    ignores: ["main.js", "node_modules", "coverage"]
+    ignores: [
+      "main.js",
+      "node_modules",
+      "coverage",
+      "eslint.config.mjs",
+      ".github/**",
+      "package-lock.json",
+      "package.json",
+      "manifest.json",
+      "versions.json",
+      "esbuild.config.mjs",
+      "spec/**"
+    ]
   },
   js.configs.recommended,
-  ...tseslint.configs.recommended,
   {
-    files: ["**/*.ts", "**/*.tsx"],
+    files: ["src/**/*.ts", "src/**/*.tsx"],
     languageOptions: {
+      parser: tseslint.parser,
       parserOptions: {
-        project: false
+        project: "./tsconfig.json",
+        tsconfigRootDir: import.meta.dirname,
+        sourceType: "module"
       }
     },
+    plugins: {
+      "@typescript-eslint": tseslint.plugin,
+      obsidianmd
+    },
     rules: {
-      "@typescript-eslint/no-explicit-any": "off"
+      ...obsidianmd.configs.recommended[0].rules,
+      ...tseslint.configs.recommendedTypeChecked[1].rules,
+      "no-unused-vars": "off",
+      "@typescript-eslint/await-thenable": "error",
+      "@typescript-eslint/no-confusing-void-expression": "error",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-floating-promises": "error",
+      "@typescript-eslint/no-misused-promises": [
+        "error",
+        {
+          checksVoidReturn: {
+            arguments: true,
+            attributes: false,
+            inheritedMethods: true,
+            properties: true,
+            returns: true,
+            variables: true
+          }
+        }
+      ],
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_"
+        }
+      ],
+      "@typescript-eslint/no-unnecessary-type-assertion": "error",
+      "@typescript-eslint/require-await": "error"
     }
   }
-);
+];
