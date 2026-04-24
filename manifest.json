@@ -1,0 +1,10 @@
+{
+  "id": "obsidian-ai-plugin",
+  "name": "Obsidian AI",
+  "version": "0.0.1",
+  "minAppVersion": "1.5.0",
+  "description": "AI assistant for Obsidian with note-aware chat, editable conversations, custom agents, and flexible model providers.",
+  "author": "Or Shemtov",
+  "authorUrl": "https://github.com/orshemtov",
+  "isDesktopOnly": true
+}
