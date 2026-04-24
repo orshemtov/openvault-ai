@@ -3,6 +3,10 @@
 OpenVault AI is an Obsidian assistant for talking to your notes, organizing context, and building repeatable workflows with markdown-defined agents, skills, and commands.
 
 <p align="center">
+  <img src="./assets/openvault-ai-logo.png" alt="OpenVault AI logo" width="192" />
+</p>
+
+<p align="center">
   <a href="https://github.com/orshemtov/openvault-ai/releases">
     <img src="https://img.shields.io/github/v/release/orshemtov/openvault-ai?label=release" alt="Release" />
   </a>
@@ -25,13 +29,7 @@ OpenVault AI is an Obsidian assistant for talking to your notes, organizing cont
   <img src="https://img.shields.io/badge/Obsidian-plugin-7C3AED" alt="Obsidian plugin" />
 </p>
 
-<!-- Add logo here once the asset is committed, for example:
-![OpenVault AI logo](./assets/openvault-ai-logo.png)
--->
-
-<!-- Add product screenshot here once the asset is committed, for example:
 ![OpenVault AI screenshot](./assets/openvault-ai-screenshot.png)
--->
 
 ## Features
 
@@ -39,11 +37,11 @@ OpenVault AI is an Obsidian assistant for talking to your notes, organizing cont
 - Reference notes and folders directly with `@mentions`
 - Run slash commands from markdown-defined command files
 - Switch between built-in agents like `ask` and `edit`
-- Add your own agents in `Agents/<agent-name>/AGENT.md`
-- Add reusable skills in `Skills/<skill-name>/SKILL.md`
+- Add your own agents in `AI/Agents/<agent-name>/AGENT.md`
+- Add reusable skills in `AI/Skills/<skill-name>/SKILL.md`
 - Persist conversations in the vault as markdown files
 - Store long-term memory entries in the vault for preferences, facts, and lessons
-- Switch between local and cloud model backends from the plugin UI
+- Switch between `Ollama`, `OpenRouter`, `OpenAI`, and `Anthropic` from the plugin UI
 - Review tool usage and assistant context directly in the UI
 
 ## How It Works
@@ -54,7 +52,7 @@ OpenVault AI keeps the assistant close to your vault instead of hiding behavior 
 - Agents, skills, and commands are editable markdown files in the vault
 - Conversations are saved as markdown notes
 - Long-term memory is stored as markdown entries in the vault
-- Model and backend settings live in the plugin settings for the current vault
+- Provider settings live in the plugin settings for the current vault
 
 ## Memory
 
@@ -76,10 +74,12 @@ Built-in agents:
 - `ask`
 - `edit`
 
+Vault-defined content is loaded from the `AI/` prefix by default.
+
 Custom agents live in:
 
 ```text
-Agents/<agent-name>/AGENT.md
+AI/Agents/<agent-name>/AGENT.md
 ```
 
 ### Skills
@@ -87,7 +87,7 @@ Agents/<agent-name>/AGENT.md
 Custom skills live in:
 
 ```text
-Skills/<skill-name>/SKILL.md
+AI/Skills/<skill-name>/SKILL.md
 ```
 
 ### Commands
@@ -95,7 +95,7 @@ Skills/<skill-name>/SKILL.md
 Custom slash commands live in:
 
 ```text
-Commands/<command-name>.md
+AI/Commands/<command-name>.md
 ```
 
 ## Installation
@@ -131,13 +131,14 @@ Use one of these commands from the command palette:
 - `Open assistant`
 - `Toggle assistant`
 
-### Configure a backend
+### Configure a provider
 
 The settings tab lets you configure:
 
-- Local and cloud model backends
-- API keys and endpoint configuration
-- Default agent and model behavior
+- `Ollama` base URL
+- `OpenRouter` base URL and API key
+- `OpenAI` base URL and API key
+- `Anthropic` base URL and API key
 
 ### Ask about notes
 
@@ -151,13 +152,17 @@ Examples:
 
 ## Privacy And Data Handling
 
-- Local backends keep requests on your machine unless the backend itself is remote
-- Cloud backends send request data to the external services you configure
+- `Ollama` requests stay on your local machine unless your Ollama server is remote
+- `OpenRouter`, `OpenAI`, and `Anthropic` send request data to external services you configure
 - Prompts may include note content that you explicitly reference or that the plugin retrieves for the active request
 - API keys are stored in the plugin's local Obsidian data file for the current vault
 - This plugin does not include telemetry or analytics collection
 
-You are responsible for choosing which backend to use for a given vault and what content you send to external APIs.
+You are responsible for choosing which provider to use for a given vault and what content you send to external APIs.
+
+## Contributing
+
+Development setup, local workflows, and contributor checks live in [`CONTRIBUTION.md`](./CONTRIBUTION.md).
 
 ## License
 
