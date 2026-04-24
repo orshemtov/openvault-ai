@@ -1,5 +1,5 @@
 import type { AgentDefinition } from "@agents/agent-types";
-import type { ObsidianAiPluginSettings, ProviderId } from "@app/settings";
+import type { VaultAiPluginSettings, ProviderId } from "@app/settings";
 import type { AssistantResponse } from "@core/assistant-response";
 import type { ResolvedContextSummary } from "@core/context-types";
 import type { ProviderRegistry } from "@providers/provider-registry";
@@ -44,7 +44,7 @@ export class ChatOrchestrator {
 
   async generateReply(
     input: ChatRequestInput,
-    settings: ObsidianAiPluginSettings
+    settings: VaultAiPluginSettings
   ): Promise<AssistantResponse> {
     const adapter = this.registry.get(input.providerId);
     if (!adapter) {
@@ -123,7 +123,7 @@ export class ChatOrchestrator {
 
   async streamReply(
     input: ChatRequestInput,
-    settings: ObsidianAiPluginSettings,
+    settings: VaultAiPluginSettings,
     callbacks: StreamReplyCallbacks,
     options: StreamReplyOptions = {}
   ): Promise<AssistantResponse> {
@@ -161,7 +161,7 @@ export class ChatOrchestrator {
 
   async generateConversationTitle(
     input: ConversationTitleInput,
-    settings: ObsidianAiPluginSettings
+    settings: VaultAiPluginSettings
   ): Promise<string> {
     const adapter = this.registry.get(input.providerId);
     if (!adapter) {
@@ -172,7 +172,7 @@ export class ChatOrchestrator {
       {
         modelId: input.modelId,
         systemPrompt:
-          "You write concise conversation titles for an Obsidian AI chat app. Return only a short title of 2 to 6 words, with no quotes, no markdown, and no trailing punctuation.",
+          "You write concise conversation titles for the Vault AI chat app. Return only a short title of 2 to 6 words, with no quotes, no markdown, and no trailing punctuation.",
         userPrompt: [
           "Write a short title for this new chat.",
           `User: ${input.firstUserMessage}`,

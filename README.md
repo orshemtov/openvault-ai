@@ -1,6 +1,6 @@
-# Obsidian AI
+# Vault AI
 
-Obsidian AI is a desktop-first Obsidian plugin that adds an assistant sidebar for working with notes using local or cloud language models.
+Vault AI is a desktop-first Obsidian plugin that adds an assistant sidebar for working with notes using local or cloud language models.
 
 ## Features
 
@@ -34,7 +34,7 @@ Once approved in the Obsidian marketplace:
 
 1. Open Obsidian
 2. Go to `Settings -> Community plugins`
-3. Search for `Obsidian AI`
+3. Search for `Vault AI`
 4. Install the plugin
 5. Enable it
 
@@ -44,7 +44,7 @@ Once approved in the Obsidian marketplace:
 2. Create this folder inside your vault:
 
 ```text
-<vault>/.obsidian/plugins/obsidian-ai-plugin/
+<vault>/.obsidian/plugins/vault-ai/
 ```
 
 3. Copy the release files into that folder
@@ -56,8 +56,8 @@ Once approved in the Obsidian marketplace:
 
 Use one of these commands from the command palette:
 
-- `Open AI Assistant`
-- `Toggle AI Assistant`
+- `Open Vault AI`
+- `Toggle Vault AI`
 
 ### Configure A Provider
 

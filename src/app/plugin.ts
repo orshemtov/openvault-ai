@@ -1,7 +1,7 @@
 import {
   DEFAULT_SETTINGS,
   pluginSettingsSchema,
-  type ObsidianAiPluginSettings,
+  type VaultAiPluginSettings,
   type ProviderId
 } from "@app/settings";
 import { AgentRegistry } from "@agents/agent-registry";
@@ -47,7 +47,7 @@ import { ToolRuntime } from "@tools/tool-runtime";
 import { ToolRegistry } from "@tools/tool-registry";
 import type { ToolDefinition } from "@tools/tool-types";
 import { AssistantView } from "@ui/views/assistant-view";
-import { ObsidianAiPluginSettingTab } from "@ui/settings/plugin-settings-tab";
+import { VaultAiPluginSettingTab } from "@ui/settings/plugin-settings-tab";
 import {
   Component,
   MarkdownRenderer,
@@ -58,8 +58,8 @@ import {
   addIcon
 } from "obsidian";
 
-export class ObsidianAiPlugin extends Plugin {
-  settings: ObsidianAiPluginSettings = DEFAULT_SETTINGS;
+export class VaultAiPlugin extends Plugin {
+  settings: VaultAiPluginSettings = DEFAULT_SETTINGS;
   readonly viewType = VIEW_TYPE_ASSISTANT;
 
   private readonly storage = new PluginStorage(this);
@@ -89,7 +89,7 @@ export class ObsidianAiPlugin extends Plugin {
     this.registerServices();
     addIcon(VIEW_ICON_ASSISTANT, VIEW_ICON_ASSISTANT_SVG);
     this.registerView(this.viewType, (leaf) => new AssistantView(leaf, this));
-    this.addSettingTab(new ObsidianAiPluginSettingTab(this));
+    this.addSettingTab(new VaultAiPluginSettingTab(this));
     this.registerCommands();
 
     void this.refreshProviderCatalogs();
@@ -107,7 +107,7 @@ export class ObsidianAiPlugin extends Plugin {
     await this.app.workspace.detachLeavesOfType(this.viewType);
   }
 
-  async updateSettings(next: Partial<ObsidianAiPluginSettings>): Promise<void> {
+  async updateSettings(next: Partial<VaultAiPluginSettings>): Promise<void> {
     this.settings = pluginSettingsSchema.parse({
       ...this.settings,
       ...next
@@ -582,7 +582,7 @@ export class ObsidianAiPlugin extends Plugin {
   private registerCommands(): void {
     this.addCommand({
       id: "open-assistant",
-      name: "Open AI Assistant",
+      name: "Open Vault AI",
       callback: async () => {
         await this.activateAssistantView();
       }
@@ -590,7 +590,7 @@ export class ObsidianAiPlugin extends Plugin {
 
     this.addCommand({
       id: "toggle-assistant",
-      name: "Toggle AI Assistant",
+      name: "Toggle Vault AI",
       callback: async () => {
         await this.toggleAssistantView();
       }

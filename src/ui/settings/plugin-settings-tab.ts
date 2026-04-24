@@ -1,11 +1,11 @@
-import type { ObsidianAiPlugin } from "@app/plugin";
+import type { VaultAiPlugin } from "@app/plugin";
 import type { ProviderId } from "@app/settings";
 import { PluginSettingTab, Setting } from "obsidian";
 
 const MODEL_KEY_SEPARATOR = "::";
 
-export class ObsidianAiPluginSettingTab extends PluginSettingTab {
-  constructor(private readonly plugin: ObsidianAiPlugin) {
+export class VaultAiPluginSettingTab extends PluginSettingTab {
+  constructor(private readonly plugin: VaultAiPlugin) {
     super(plugin.app, plugin);
   }
 
@@ -13,7 +13,7 @@ export class ObsidianAiPluginSettingTab extends PluginSettingTab {
     const { containerEl } = this;
     containerEl.empty();
 
-    containerEl.createEl("h2", { text: "Obsidian AI" });
+    containerEl.createEl("h2", { text: "Vault AI" });
 
     const defaultsSection = createSection(containerEl, "General");
     const modelsSection = createSection(containerEl, "Models");
@@ -186,7 +186,7 @@ export class ObsidianAiPluginSettingTab extends PluginSettingTab {
 
 function renderProviderSettings(
   providerSection: HTMLElement,
-  plugin: ObsidianAiPlugin,
+  plugin: VaultAiPlugin,
   providerId: ProviderId
 ): void {
   if (providerId === "openrouter") {
@@ -274,7 +274,7 @@ function createSection(
   title: string
 ): HTMLDivElement {
   const section = containerEl.createDiv({
-    cls: "obsidian-ai-plugin__settings-section"
+    cls: "vault-ai__settings-section"
   });
   section.createEl("h3", { text: title });
   return section;

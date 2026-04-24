@@ -1,4 +1,4 @@
-import type { ObsidianAiPlugin } from "@app/plugin";
+import type { VaultAiPlugin } from "@app/plugin";
 import { AssistantShell } from "@ui/components/assistant-shell";
 import {
   VIEW_ICON_ASSISTANT,
@@ -13,7 +13,7 @@ export class AssistantView extends ItemView {
 
   constructor(
     leaf: WorkspaceLeaf,
-    private readonly plugin: ObsidianAiPlugin
+    private readonly plugin: VaultAiPlugin
   ) {
     super(leaf);
   }

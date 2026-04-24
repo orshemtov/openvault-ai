@@ -1,3 +1,3 @@
-import { ObsidianAiPlugin } from "@app/plugin";
+import { VaultAiPlugin } from "@app/plugin";
 
-export default ObsidianAiPlugin;
+export default VaultAiPlugin;

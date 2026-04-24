@@ -1,7 +1,7 @@
 {
-  "name": "obsidian-ai-plugin",
+  "name": "vault-ai",
   "version": "0.0.1",
-  "description": "AI assistant for Obsidian with note-aware chat, custom agents, and multiple model providers.",
+  "description": "AI assistant for note-aware chat, custom agents, and multiple model providers.",
   "license": "MIT",
   "author": "Or Shemtov",
   "type": "module",
@@ -23,12 +23,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/orshemtov/obsidian-ai-plugin.git"
+    "url": "https://github.com/orshemtov/vault-ai.git"
   },
   "bugs": {
-    "url": "https://github.com/orshemtov/obsidian-ai-plugin/issues"
+    "url": "https://github.com/orshemtov/vault-ai/issues"
   },
-  "homepage": "https://github.com/orshemtov/obsidian-ai-plugin#readme",
+  "homepage": "https://github.com/orshemtov/vault-ai#readme",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/node": "^25.6.0",

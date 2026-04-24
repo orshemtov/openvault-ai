@@ -1,7 +1,7 @@
-export const PLUGIN_ID = "obsidian-ai-plugin";
-export const VIEW_TYPE_ASSISTANT = "obsidian-ai-plugin-assistant-view";
-export const VIEW_TITLE_ASSISTANT = "AI Assistant";
-export const VIEW_ICON_ASSISTANT = "obsidian-ai-plugin-assistant";
+export const PLUGIN_ID = "vault-ai";
+export const VIEW_TYPE_ASSISTANT = "vault-ai-assistant-view";
+export const VIEW_TITLE_ASSISTANT = "Vault AI";
+export const VIEW_ICON_ASSISTANT = "vault-ai-assistant";
 
 // A custom retro robot icon for the assistant view.
 export const VIEW_ICON_ASSISTANT_SVG = `

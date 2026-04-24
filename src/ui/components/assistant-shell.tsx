@@ -1,6 +1,6 @@
 import type { AgentDefinition } from "@agents/agent-types";
-import type { ObsidianAiPlugin } from "@app/plugin";
-import type { ObsidianAiPluginSettings, ProviderId } from "@app/settings";
+import type { VaultAiPlugin } from "@app/plugin";
+import type { VaultAiPluginSettings, ProviderId } from "@app/settings";
 import type { CommandDefinition } from "../../commands/command-types";
 import type { ResolvedContextSummary } from "@core/context-types";
 import {
@@ -26,8 +26,8 @@ import {
 } from "react";
 
 type AssistantShellProps = {
-  plugin: ObsidianAiPlugin;
-  settings: ObsidianAiPluginSettings;
+  plugin: VaultAiPlugin;
+  settings: VaultAiPluginSettings;
 };
 
 type SuggestionItem = {
@@ -700,17 +700,17 @@ export function AssistantShell({ plugin, settings }: AssistantShellProps) {
   };
 
   return (
-    <div className="obsidian-ai-plugin__view">
-      <header className="obsidian-ai-plugin__header">
-        <div className="obsidian-ai-plugin__title-stack">
-          <h1 className="obsidian-ai-plugin__title">Obsidian AI</h1>
-          <span className="obsidian-ai-plugin__subtitle">
+    <div className="vault-ai__view">
+      <header className="vault-ai__header">
+        <div className="vault-ai__title-stack">
+          <h1 className="vault-ai__title">Vault AI</h1>
+          <span className="vault-ai__subtitle">
             {conversationTitle}
           </span>
         </div>
-        <div className="obsidian-ai-plugin__header-actions">
+        <div className="vault-ai__header-actions">
           <button
-            className="mod-muted obsidian-ai-plugin__header-button obsidian-ai-plugin__header-button--square"
+            className="mod-muted vault-ai__header-button vault-ai__header-button--square"
             onClick={() => void startNewChat()}
             type="button"
             aria-label="New chat"
@@ -719,7 +719,7 @@ export function AssistantShell({ plugin, settings }: AssistantShellProps) {
             +
           </button>
           <button
-            className="mod-muted obsidian-ai-plugin__header-button"
+            className="mod-muted vault-ai__header-button"
             onClick={openChatsPicker}
             type="button"
             aria-label="Chats"
@@ -728,7 +728,7 @@ export function AssistantShell({ plugin, settings }: AssistantShellProps) {
             Chats
           </button>
           <button
-            className="mod-muted obsidian-ai-plugin__header-button obsidian-ai-plugin__header-button--square"
+            className="mod-muted vault-ai__header-button vault-ai__header-button--square"
             onClick={() => plugin.openPluginSettings()}
             type="button"
             aria-label="Settings"
@@ -739,25 +739,25 @@ export function AssistantShell({ plugin, settings }: AssistantShellProps) {
         </div>
       </header>
 
-      <div className="obsidian-ai-plugin__body">
-        <div className="obsidian-ai-plugin__chat-surface">
-          <div className="obsidian-ai-plugin__conversation-thread">
+      <div className="vault-ai__body">
+        <div className="vault-ai__chat-surface">
+          <div className="vault-ai__conversation-thread">
             <div
-              className="obsidian-ai-plugin__conversation"
+              className="vault-ai__conversation"
               ref={conversationRef}
               onScroll={handleConversationScroll}
             >
               {messages.map((message) => (
                 <article
                   key={message.id}
-                  className={`obsidian-ai-plugin__message obsidian-ai-plugin__message--${message.role} obsidian-ai-plugin__message--${message.status ?? "done"}`}
+                  className={`vault-ai__message vault-ai__message--${message.role} vault-ai__message--${message.status ?? "done"}`}
                 >
-                  <div className="obsidian-ai-plugin__message-header">
+                  <div className="vault-ai__message-header">
                     <strong>
                       {message.role === "user" ? "You" : "Assistant"}
                     </strong>
                     <button
-                      className="clickable-icon obsidian-ai-plugin__message-action"
+                      className="clickable-icon vault-ai__message-action"
                       onClick={() => void copyMessage(message)}
                       type="button"
                       aria-label="Copy message"
@@ -773,13 +773,13 @@ export function AssistantShell({ plugin, settings }: AssistantShellProps) {
                   {message.status !== "error" &&
                   message.citations &&
                   message.citations.length > 0 ? (
-                    <details className="obsidian-ai-plugin__message-meta" open>
+                    <details className="vault-ai__message-meta" open>
                       <summary>Sources {message.citations.length}</summary>
-                      <ul className="obsidian-ai-plugin__message-source-list">
+                      <ul className="vault-ai__message-source-list">
                         {message.citations.map((citation) => (
                           <li key={`${message.id}-${citation.path}`}>
                             <button
-                              className="obsidian-ai-plugin__source-link"
+                              className="vault-ai__source-link"
                               onClick={() =>
                                 void plugin.openConversationNote(citation.path)
                               }
@@ -793,9 +793,9 @@ export function AssistantShell({ plugin, settings }: AssistantShellProps) {
                     </details>
                   ) : null}
                   {message.toolEvents && message.toolEvents.length > 0 ? (
-                    <details className="obsidian-ai-plugin__message-meta">
+                    <details className="vault-ai__message-meta">
                       <summary>Activity</summary>
-                      <ul className="obsidian-ai-plugin__message-activity-list">
+                      <ul className="vault-ai__message-activity-list">
                         {message.toolEvents.map((toolEvent) => (
                           <li
                             key={`${message.id}-${toolEvent.toolId}-${toolEvent.status}`}
@@ -815,14 +815,14 @@ export function AssistantShell({ plugin, settings }: AssistantShellProps) {
             </div>
           </div>
 
-          <div className="obsidian-ai-plugin__composer-shell">
-            <div className="obsidian-ai-plugin__composer-input-wrap">
+          <div className="vault-ai__composer-shell">
+            <div className="vault-ai__composer-input-wrap">
               {combinedSuggestions.length > 0 ? (
-                <div className="obsidian-ai-plugin__suggestions">
+                <div className="vault-ai__suggestions">
                   {combinedSuggestions.map((suggestion, index) => (
                     <button
                       key={suggestion.key}
-                      className={`obsidian-ai-plugin__suggestion ${index === selectedSuggestionIndex ? "is-selected" : ""}`}
+                      className={`vault-ai__suggestion ${index === selectedSuggestionIndex ? "is-selected" : ""}`}
                       onClick={() => {
                         setSelectedSuggestionIndex(index);
                         setPrompt((currentPrompt) => {
@@ -838,17 +838,17 @@ export function AssistantShell({ plugin, settings }: AssistantShellProps) {
                       }}
                       type="button"
                     >
-                      <span className="obsidian-ai-plugin__suggestion-leading">
-                        <span className="obsidian-ai-plugin__suggestion-title">
+                      <span className="vault-ai__suggestion-leading">
+                        <span className="vault-ai__suggestion-title">
                           {suggestion.label}
                         </span>
                         {suggestion.detail ? (
-                          <small className="obsidian-ai-plugin__suggestion-detail">
+                          <small className="vault-ai__suggestion-detail">
                             {suggestion.detail}
                           </small>
                         ) : null}
                       </span>
-                      <small className="obsidian-ai-plugin__suggestion-meta">
+                      <small className="vault-ai__suggestion-meta">
                         {suggestion.description}
                       </small>
                     </button>
@@ -856,7 +856,7 @@ export function AssistantShell({ plugin, settings }: AssistantShellProps) {
                 </div>
               ) : null}
 
-              <label className="obsidian-ai-plugin__field obsidian-ai-plugin__composer-field">
+              <label className="vault-ai__field vault-ai__composer-field">
                 <textarea
                   ref={composerInputRef}
                   rows={4}
@@ -872,27 +872,27 @@ export function AssistantShell({ plugin, settings }: AssistantShellProps) {
               </label>
             </div>
 
-            <div className="obsidian-ai-plugin__composer-footer">
-              <div className="obsidian-ai-plugin__composer-controls">
-                <div className="obsidian-ai-plugin__control-cluster">
+            <div className="vault-ai__composer-footer">
+              <div className="vault-ai__composer-controls">
+                <div className="vault-ai__control-cluster">
                   <button
-                    className="obsidian-ai-plugin__control-button obsidian-ai-plugin__control-button--compact"
+                    className="vault-ai__control-button vault-ai__control-button--compact"
                     onClick={openAgentPicker}
                     type="button"
                   >
-                    <span className="obsidian-ai-plugin__control-value">
+                    <span className="vault-ai__control-value">
                       {selectedAgent?.name ?? formatAgentLabel(selectedAgentId)}
                     </span>
                   </button>
                 </div>
 
-                <div className="obsidian-ai-plugin__control-cluster">
+                <div className="vault-ai__control-cluster">
                   <button
-                    className="obsidian-ai-plugin__control-button obsidian-ai-plugin__control-button--compact obsidian-ai-plugin__control-button--model"
+                    className="vault-ai__control-button vault-ai__control-button--compact vault-ai__control-button--model"
                     onClick={openModelPicker}
                     type="button"
                   >
-                    <span className="obsidian-ai-plugin__control-value">
+                    <span className="vault-ai__control-value">
                       {selectedModelOption?.label ??
                         formatModelLabel(
                           resolvedProviderId,
@@ -905,7 +905,7 @@ export function AssistantShell({ plugin, settings }: AssistantShellProps) {
               </div>
 
               <button
-                className="mod-cta obsidian-ai-plugin__send-button"
+                className="mod-cta vault-ai__send-button"
                 disabled={!isSending && !canSend}
                 onClick={() =>
                   isSending ? cancelActiveRequest() : void sendPromptAsync()
@@ -997,7 +997,7 @@ function GearIcon() {
   return (
     <svg
       aria-hidden="true"
-      className="obsidian-ai-plugin__gear-icon"
+      className="vault-ai__gear-icon"
       viewBox="0 0 24 24"
     >
       <path
@@ -1012,7 +1012,7 @@ function CopyIcon() {
   return (
     <svg
       aria-hidden="true"
-      className="obsidian-ai-plugin__copy-icon"
+      className="vault-ai__copy-icon"
       viewBox="0 0 24 24"
     >
       <path
@@ -1024,7 +1024,7 @@ function CopyIcon() {
 }
 
 type MessageMarkdownProps = {
-  plugin: ObsidianAiPlugin;
+  plugin: VaultAiPlugin;
   text: string;
 };
 
@@ -1067,7 +1067,7 @@ function MessageMarkdown({ plugin, text }: MessageMarkdownProps) {
   }, [plugin, text]);
 
   return (
-    <div className="obsidian-ai-plugin__message-markdown" ref={containerRef} />
+    <div className="vault-ai__message-markdown" ref={containerRef} />
   );
 }
 

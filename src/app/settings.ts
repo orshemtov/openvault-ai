@@ -27,9 +27,9 @@ export const pluginSettingsSchema = z.object({
 });
 
 export type ProviderId = z.infer<typeof providerIdSchema>;
-export type ObsidianAiPluginSettings = z.infer<typeof pluginSettingsSchema>;
+export type VaultAiPluginSettings = z.infer<typeof pluginSettingsSchema>;
 
-export const DEFAULT_SETTINGS: ObsidianAiPluginSettings = {
+export const DEFAULT_SETTINGS: VaultAiPluginSettings = {
   defaultProvider: "openrouter",
   defaultAgent: "ask",
   defaultChatModel: "openai/gpt-5.4",

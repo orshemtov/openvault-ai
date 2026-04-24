@@ -1,4 +1,4 @@
-.obsidian-ai-plugin__view {
+.vault-ai__view {
   background: var(--background-primary);
   color: var(--text-normal);
   display: flex;
@@ -6,27 +6,27 @@
   height: 100%;
 }
 
-.obsidian-ai-plugin__header {
+.vault-ai__header {
   align-items: center;
   display: flex;
   justify-content: space-between;
   padding: 14px 16px 12px;
 }
 
-.obsidian-ai-plugin__title-stack {
+.vault-ai__title-stack {
   display: grid;
   gap: 3px;
   min-width: 0;
 }
 
-.obsidian-ai-plugin__title {
+.vault-ai__title {
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: -0.01em;
   margin: 0;
 }
 
-.obsidian-ai-plugin__subtitle {
+.vault-ai__subtitle {
   color: var(--text-muted);
   font-size: 0.76rem;
   overflow: hidden;
@@ -34,13 +34,13 @@
   white-space: nowrap;
 }
 
-.obsidian-ai-plugin__header-actions {
+.vault-ai__header-actions {
   align-items: center;
   display: flex;
   gap: 8px;
 }
 
-.obsidian-ai-plugin__header-button {
+.vault-ai__header-button {
   align-items: center;
   background: color-mix(in srgb, var(--background-secondary) 88%, transparent);
   border: 1px solid
@@ -57,8 +57,8 @@
   padding: 0 12px;
 }
 
-.obsidian-ai-plugin__header-button.is-active,
-.obsidian-ai-plugin__header-button:hover {
+.vault-ai__header-button.is-active,
+.vault-ai__header-button:hover {
   background: color-mix(
     in srgb,
     var(--interactive-accent) 12%,
@@ -66,24 +66,24 @@
   );
 }
 
-.obsidian-ai-plugin__header-button--square {
+.vault-ai__header-button--square {
   padding: 0;
   width: 34px;
 }
 
-.obsidian-ai-plugin__gear-icon {
+.vault-ai__gear-icon {
   height: 16px;
   width: 16px;
 }
 
-.obsidian-ai-plugin__body {
+.vault-ai__body {
   flex: 1;
   min-height: 0;
   padding: 0 12px 12px;
   position: relative;
 }
 
-.obsidian-ai-plugin__chat-surface {
+.vault-ai__chat-surface {
   border: 1px solid
     color-mix(in srgb, var(--background-modifier-border) 70%, transparent);
   border-radius: 18px;
@@ -94,12 +94,12 @@
   overflow: hidden;
 }
 
-.obsidian-ai-plugin__conversation-thread {
+.vault-ai__conversation-thread {
   min-height: 0;
   overflow: hidden;
 }
 
-.obsidian-ai-plugin__conversation {
+.vault-ai__conversation {
   display: flex;
   flex-direction: column;
   gap: 22px;
@@ -109,25 +109,25 @@
   padding: 20px 20px 16px;
 }
 
-.obsidian-ai-plugin__message {
+.vault-ai__message {
   display: grid;
   flex: 0 0 auto;
   gap: 8px;
   max-width: min(92%, 860px);
 }
 
-.obsidian-ai-plugin__message-header {
+.vault-ai__message-header {
   align-items: center;
   display: flex;
   gap: 10px;
   justify-content: space-between;
 }
 
-.obsidian-ai-plugin__message-header strong {
+.vault-ai__message-header strong {
   font-size: 0.82rem;
 }
 
-.obsidian-ai-plugin__message--user {
+.vault-ai__message--user {
   background: color-mix(in srgb, var(--background-secondary) 92%, transparent);
   border: 1px solid
     color-mix(in srgb, var(--background-modifier-border) 72%, transparent);
@@ -137,61 +137,61 @@
   padding: 12px 14px;
 }
 
-.obsidian-ai-plugin__message--assistant {
+.vault-ai__message--assistant {
   justify-self: start;
 }
 
-.obsidian-ai-plugin__message-markdown {
+.vault-ai__message-markdown {
   line-height: 1.6;
 }
 
-.obsidian-ai-plugin__message-markdown p,
-.obsidian-ai-plugin__message-markdown ul,
-.obsidian-ai-plugin__message-markdown ol,
-.obsidian-ai-plugin__message-markdown pre,
-.obsidian-ai-plugin__message-markdown blockquote,
-.obsidian-ai-plugin__message-markdown h1,
-.obsidian-ai-plugin__message-markdown h2,
-.obsidian-ai-plugin__message-markdown h3,
-.obsidian-ai-plugin__message-markdown h4 {
+.vault-ai__message-markdown p,
+.vault-ai__message-markdown ul,
+.vault-ai__message-markdown ol,
+.vault-ai__message-markdown pre,
+.vault-ai__message-markdown blockquote,
+.vault-ai__message-markdown h1,
+.vault-ai__message-markdown h2,
+.vault-ai__message-markdown h3,
+.vault-ai__message-markdown h4 {
   margin-bottom: 0.7em;
   margin-top: 0;
 }
 
-.obsidian-ai-plugin__message-markdown > :last-child {
+.vault-ai__message-markdown > :last-child {
   margin-bottom: 0;
 }
 
-.obsidian-ai-plugin__message-meta {
+.vault-ai__message-meta {
   color: var(--text-muted);
   margin-top: 2px;
   opacity: 0.92;
 }
 
-.obsidian-ai-plugin__message-meta summary {
+.vault-ai__message-meta summary {
   cursor: pointer;
   font-size: 0.78rem;
   list-style: none;
 }
 
-.obsidian-ai-plugin__message-meta summary::-webkit-details-marker {
+.vault-ai__message-meta summary::-webkit-details-marker {
   display: none;
 }
 
-.obsidian-ai-plugin__message-source-list,
-.obsidian-ai-plugin__message-activity-list {
+.vault-ai__message-source-list,
+.vault-ai__message-activity-list {
   display: grid;
   gap: 6px;
   margin: 8px 0 0;
   padding-left: 0;
 }
 
-.obsidian-ai-plugin__message-source-list li,
-.obsidian-ai-plugin__message-activity-list li {
+.vault-ai__message-source-list li,
+.vault-ai__message-activity-list li {
   list-style: none;
 }
 
-.obsidian-ai-plugin__source-link {
+.vault-ai__source-link {
   background: color-mix(in srgb, var(--background-secondary) 92%, transparent);
   border: 1px solid
     color-mix(in srgb, var(--background-modifier-border) 72%, transparent);
@@ -205,7 +205,7 @@
   text-align: left;
 }
 
-.obsidian-ai-plugin__source-link:hover {
+.vault-ai__source-link:hover {
   background: color-mix(
     in srgb,
     var(--interactive-accent) 10%,
@@ -213,7 +213,7 @@
   );
 }
 
-.obsidian-ai-plugin__composer-shell {
+.vault-ai__composer-shell {
   border-top: 1px solid
     color-mix(in srgb, var(--background-modifier-border) 72%, transparent);
   display: grid;
@@ -221,17 +221,17 @@
   padding: 12px;
 }
 
-.obsidian-ai-plugin__composer-input-wrap {
+.vault-ai__composer-input-wrap {
   display: grid;
   position: relative;
 }
 
-.obsidian-ai-plugin__field {
+.vault-ai__field {
   display: grid;
   gap: 6px;
 }
 
-.obsidian-ai-plugin__composer-field textarea {
+.vault-ai__composer-field textarea {
   background: var(--background-primary);
   border: 1px solid
     color-mix(in srgb, var(--background-modifier-border) 76%, transparent);
@@ -243,7 +243,7 @@
   width: 100%;
 }
 
-.obsidian-ai-plugin__suggestions {
+.vault-ai__suggestions {
   background: color-mix(in srgb, var(--background-secondary) 98%, transparent);
   border: 1px solid
     color-mix(in srgb, var(--background-modifier-border) 75%, transparent);
@@ -260,7 +260,7 @@
   z-index: 12;
 }
 
-.obsidian-ai-plugin__suggestion {
+.vault-ai__suggestion {
   align-items: flex-start;
   background: transparent;
   border: 0;
@@ -276,8 +276,8 @@
   width: 100%;
 }
 
-.obsidian-ai-plugin__suggestion:hover,
-.obsidian-ai-plugin__suggestion.is-selected {
+.vault-ai__suggestion:hover,
+.vault-ai__suggestion.is-selected {
   background: color-mix(
     in srgb,
     var(--interactive-accent) 12%,
@@ -285,7 +285,7 @@
   );
 }
 
-.obsidian-ai-plugin__suggestion-leading {
+.vault-ai__suggestion-leading {
   align-items: baseline;
   display: flex;
   gap: 8px;
@@ -293,7 +293,7 @@
   width: 100%;
 }
 
-.obsidian-ai-plugin__suggestion-title {
+.vault-ai__suggestion-title {
   display: block;
   font-size: 0.84rem;
   font-weight: 600;
@@ -304,14 +304,14 @@
   white-space: nowrap;
 }
 
-.obsidian-ai-plugin__suggestion-detail {
+.vault-ai__suggestion-detail {
   color: var(--text-muted);
   flex: 0 0 auto;
   font-size: 0.68rem;
   line-height: 1.2;
 }
 
-.obsidian-ai-plugin__suggestion-meta {
+.vault-ai__suggestion-meta {
   color: var(--text-muted);
   font-size: 0.72rem;
   line-height: 1.25;
@@ -322,25 +322,25 @@
   width: 100%;
 }
 
-.obsidian-ai-plugin__composer-footer {
+.vault-ai__composer-footer {
   align-items: center;
   display: flex;
   gap: 10px;
   justify-content: space-between;
 }
 
-.obsidian-ai-plugin__composer-controls {
+.vault-ai__composer-controls {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   position: relative;
 }
 
-.obsidian-ai-plugin__control-cluster {
+.vault-ai__control-cluster {
   position: relative;
 }
 
-.obsidian-ai-plugin__control-button {
+.vault-ai__control-button {
   align-items: center;
   background: var(--background-secondary);
   border: 1px solid
@@ -358,16 +358,16 @@
   text-align: left;
 }
 
-.obsidian-ai-plugin__control-button--compact {
+.vault-ai__control-button--compact {
   max-width: 220px;
 }
 
-.obsidian-ai-plugin__control-button--model {
+.vault-ai__control-button--model {
   max-width: 280px;
 }
 
-.obsidian-ai-plugin__control-button.is-active,
-.obsidian-ai-plugin__control-button:hover {
+.vault-ai__control-button.is-active,
+.vault-ai__control-button:hover {
   background: color-mix(
     in srgb,
     var(--interactive-accent) 10%,
@@ -375,7 +375,7 @@
   );
 }
 
-.obsidian-ai-plugin__control-value {
+.vault-ai__control-value {
   font-size: 0.83rem;
   font-weight: 600;
   overflow: hidden;
@@ -383,59 +383,59 @@
   white-space: nowrap;
 }
 
-.obsidian-ai-plugin__send-button {
+.vault-ai__send-button {
   border-radius: 10px;
   height: 34px;
   min-width: 88px;
   padding: 0 14px;
 }
 
-.obsidian-ai-plugin__native-suggest-item {
+.vault-ai__native-suggest-item {
   display: grid;
   gap: 2px;
 }
 
-.obsidian-ai-plugin__native-suggest-title {
+.vault-ai__native-suggest-title {
   font-size: 0.9rem;
   font-weight: 600;
 }
 
-.obsidian-ai-plugin__native-suggest-meta {
+.vault-ai__native-suggest-meta {
   color: var(--text-muted);
   font-size: 0.76rem;
 }
 
-.obsidian-ai-plugin__settings-section {
+.vault-ai__settings-section {
   border-top: 1px solid
     color-mix(in srgb, var(--background-modifier-border) 70%, transparent);
   margin-top: 22px;
   padding-top: 16px;
 }
 
-.obsidian-ai-plugin__settings-section:first-of-type {
+.vault-ai__settings-section:first-of-type {
   border-top: 0;
   margin-top: 0;
   padding-top: 0;
 }
 
-.obsidian-ai-plugin__settings-section > h3 {
+.vault-ai__settings-section > h3 {
   font-size: 0.95rem;
   margin: 0 0 10px;
 }
 
-.obsidian-ai-plugin__settings-subsection {
+.vault-ai__settings-subsection {
   color: var(--text-normal);
   font-size: 0.82rem;
   font-weight: 700;
   margin: 20px 0 8px;
 }
 
-.obsidian-ai-plugin__settings-intro {
+.vault-ai__settings-intro {
   color: var(--text-muted);
   margin: 6px 0 0;
 }
 
-.obsidian-ai-plugin__settings-section .setting-item {
+.vault-ai__settings-section .setting-item {
   border: 1px solid
     color-mix(in srgb, var(--background-modifier-border) 70%, transparent);
   border-radius: 14px;
@@ -443,59 +443,59 @@
   padding: 14px 16px;
 }
 
-.obsidian-ai-plugin__settings-section .setting-item:last-child {
+.vault-ai__settings-section .setting-item:last-child {
   margin-bottom: 0;
 }
 
-.obsidian-ai-plugin__settings-section .setting-item-control {
+.vault-ai__settings-section .setting-item-control {
   min-width: 260px;
 }
 
 @media (max-width: 700px) {
-  .obsidian-ai-plugin__header {
+  .vault-ai__header {
     align-items: flex-start;
     flex-direction: column;
     gap: 10px;
   }
 
-  .obsidian-ai-plugin__header-actions {
+  .vault-ai__header-actions {
     width: 100%;
   }
 
-  .obsidian-ai-plugin__header-button:not(
-    .obsidian-ai-plugin__header-button--square
+  .vault-ai__header-button:not(
+    .vault-ai__header-button--square
   ) {
     flex: 1;
   }
 
-  .obsidian-ai-plugin__message {
+  .vault-ai__message {
     max-width: 100%;
   }
 
-  .obsidian-ai-plugin__composer-footer {
+  .vault-ai__composer-footer {
     align-items: stretch;
     flex-direction: column;
   }
 
-  .obsidian-ai-plugin__composer-controls {
+  .vault-ai__composer-controls {
     flex-direction: column;
   }
 
-  .obsidian-ai-plugin__control-button,
-  .obsidian-ai-plugin__control-button--compact,
-  .obsidian-ai-plugin__control-button--model {
+  .vault-ai__control-button,
+  .vault-ai__control-button--compact,
+  .vault-ai__control-button--model {
     min-width: 100%;
     max-width: none;
     width: 100%;
   }
 
-  .obsidian-ai-plugin__control-popover,
-  .obsidian-ai-plugin__control-popover--model {
+  .vault-ai__control-popover,
+  .vault-ai__control-popover--model {
     min-width: 100%;
     right: 0;
   }
 
-  .obsidian-ai-plugin__send-button {
+  .vault-ai__send-button {
     width: 100%;
   }
 }

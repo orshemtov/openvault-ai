@@ -1,7 +1,7 @@
-import type { ObsidianAiPluginSettings, ProviderId } from "@app/settings";
+import type { VaultAiPluginSettings, ProviderId } from "@app/settings";
 
 export type ProviderSettingsSubset = Pick<
-  ObsidianAiPluginSettings,
+  VaultAiPluginSettings,
   | "openRouterBaseUrl"
   | "openRouterApiKey"
   | "openAiBaseUrl"
